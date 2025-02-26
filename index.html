@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게임 모음</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            background-color: #1a0124;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 10px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, #7d00ff, #ff00d4);
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .highlight {
+            color: yellow;
+            font-weight: bold;
+        }
+        .card {
+            background-color: #28033a;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: left;
+        }
+        .card img {
+            width: 100px;
+        }
+        .card h3 {
+            margin: 5px 0;
+            color: #ffdd55;
+        }
+        .stars {
+            color: gold;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            background: #d000ff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img id="userAvatar" class="avatar" src="default_avatar.png" alt="Avatar">
+            <div>👋 인사말 <span id="userName" class="highlight">User</span>!</div>
+        </div>
+
+        <div class="card">
+            <img src="fairpari_logo.png" alt="Fairpari">
+            <h3>Fairpari</h3>
+            <div class="stars">★★★★★</div>
+            <p>FairPari 에 가입하고 첫 입금 시 최대 15만 원까지 100% 보너스를 받으세요!</p>
+            <a href="https://example.com/fairpari" class="btn">회원가입</a>
+        </div>
+
+        <div class="card">
+            <img src="1win_logo.png" alt="1Win">
+            <h3>1Win</h3>
+            <div class="stars">★★★★★</div>
+            <a href="https://example.com/1win" class="btn">회원가입</a>
+        </div>
+
+        <div class="card">
+            <img src="betssen_logo.png" alt="Betssen">
+            <h3>Betssen</h3>
+            <div class="stars">★★★★★</div>
+            <a href="https://example.com/betssen" class="btn">회원가입</a>
+        </div>
+    </div>
+
+    <script>
+        let tg = window.Telegram.WebApp;
+        tg.expand(); // Растягивает на весь экран
+
+        document.getElementById("userName").textContent = tg.initDataUnsafe.user?.first_name || "User";
+        document.getElementById("userAvatar").src = tg.initDataUnsafe.user?.photo_url || "default_avatar.png";
+    </script>
+</body>
+</html>
